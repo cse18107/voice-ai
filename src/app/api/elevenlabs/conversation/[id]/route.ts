@@ -8,7 +8,7 @@ const limiter = rateLimit({
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const ip = req.headers.get("x-forwarded-for") || "127.0.0.1";
